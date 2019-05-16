@@ -1,0 +1,50 @@
+{
+    "id": "MustNotOverlapPolygon",
+    "name": "Must Not Overlap",
+    "description": [ 
+        "<img src=\"@@@_d/must_not_overlap.png\">\n",
+        "Requires that the interior of polygons in the dataset not overlap.",
+        "The polygons can share edges or vertices.",
+        "This rule is used when an area cannot belong to two or more polygons.",
+        "The polygons overlaps when the geometries have some points in common;",
+        "but not all points in common (so if one geometry is inside the other",
+        "overlaps would be false).",
+        "The overlapping section must be the same kind of shape as the two geometries;",
+        "so two polygons that touch on a point are not considered to be overlapping.",
+        "It is useful for modeling administrative boundaries, such as ZIP Codes",
+        "or voting districts, and mutually exclusive area classifications,",
+        "such as land cover or landform type."
+    ],
+    "actions" : {
+        "CreateFeature": {
+            "name" : "Create feature",
+            "description": [ 
+                "The Create Feature fix creates a new polygon feature out of",
+                "the error shape and removes the portion of overlap from each",
+                "of the features, causing the error to create a planar",
+                "representation of the feature geometry.\n",
+                "This fix can be applied to one or more selected Must Not Overlap errors."
+            ]
+        },
+        "Subtract": {
+            "name" : "Subtract",
+            "description": [ 
+                "The Subtract fix removes the overlapping portion of geometry",
+                "from each feature that is causing the error and leaves a gap",
+                "or void in its place. This fix can be applied to one or more",
+                "selected Must Not Overlap errors."
+            ]
+        },
+        "Merge": {
+            "name" : "Merge",
+            "description": [ 
+                "The Merge fix adds the portion of overlap from one feature",
+                "and subtracts it from the others that are violating the rule.",
+                "You need to pick the feature that receives the portion of",
+                "overlap using the Merge dialog box.",
+                "This fix can be applied to one Must Not Overlap error only."
+            ]
+        }
+    }
+}
+
