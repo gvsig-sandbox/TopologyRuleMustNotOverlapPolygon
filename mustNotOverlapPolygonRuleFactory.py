@@ -33,17 +33,14 @@ class MustNotOverlapPolygonRuleFactory(AbstractTopologyRuleFactory):
     rule = MustNotOverlapPolygonRule(plan, self, tolerance, dataSet1)
     return rule
 
-  def selfRegister(self):
-      try:
-        manager = TopologyLocator.getTopologyManager()
-        manager.addRuleFactories(MustNotOverlapPolygonRuleFactory())
-      except Exception as ex:
-        logger("Can't register topology rule from MustNotOverlapPolygonRuleFactory."+str(ex), LOGGER_WARN)
+def selfRegister():
+    try:
+      manager = TopologyLocator.getTopologyManager()
+      manager.addRuleFactories(MustNotOverlapPolygonRuleFactory())
+    except Exception as ex:
+      logger("Can't register topology rule from MustNotOverlapPolygonRuleFactory."+str(ex), LOGGER_WARN)
 
 def main(*args):
   print "* Executing MustNotOverlapPolygonFactory main."
-  tm = TopologyLocator.getTopologyManager()
-  a = MustNotOverlapPolygonRuleFactory()
-  tm.addRuleFactories(a)
-  #a.createRule( None, None, None, 3)
+  selfRegister()
   pass

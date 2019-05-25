@@ -2,9 +2,7 @@
 
 import gvsig
 from org.gvsig.topology.lib.api import TopologyLocator
-from mustNotOverlapPolygonFactory import MustNotOverlapPolygonRuleFactory
+from mustNotOverlapPolygonRuleFactory import selfRegister
 
 def main(*args):
-  tm = TopologyLocator.getTopologyManager()
-  a = MustNotOverlapPolygonRuleFactory()
-  tm.addRuleFactories(a)
+  selfRegister()
