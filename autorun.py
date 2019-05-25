@@ -1,8 +1,13 @@
 # encoding: utf-8
 
 import gvsig
-from org.gvsig.topology.lib.api import TopologyLocator
+from gvsig import uselib
+uselib.use_plugin("org.gvsig.topology.app.mainplugin")
+
 from mustNotOverlapPolygonRuleFactory import selfRegister
+
+
+from org.gvsig.topology.lib.api import TopologyLocator
 
 def main(*args):
   selfRegister()
