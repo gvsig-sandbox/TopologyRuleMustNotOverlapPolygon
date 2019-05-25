@@ -5,7 +5,7 @@ Lang = python
 
 [Unit]
 type = Script
-name = MergeAction
+name = __init__
 description = 
 createdBy = 
 version = 
